@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#FFD67D"
+
     xmlns:tools="http://schemas.android.com/tools">
+
 
     <TextView
         android:id="@+id/cityTitle"
@@ -62,6 +64,23 @@
             android:textSize="20sp"
             tools:text="42%"/>
 
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/returnFromFragmentWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="#75D896"
+        android:backgroundTintMode="add"
+        android:text="Return"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

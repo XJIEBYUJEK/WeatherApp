@@ -27,7 +27,14 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        returnFromFragmentWeather.setOnClickListener {
+            fragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.container,
+                    SearchFragment()
+                )
+                ?.commit()
+        }
 
         cityTitle.text = arguments?.getString(CITY)
         title.text = arguments?.getString(OVERALL)
@@ -35,6 +42,8 @@ class WeatherFragment : Fragment() {
         temperature.text = "${arguments?.getString(TEMP)} °C"
         humidity.text = "${arguments?.getString(HUMIDITY)} %"
     }
+
+
 
 
 }
