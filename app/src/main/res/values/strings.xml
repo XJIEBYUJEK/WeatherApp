@@ -252,6 +252,9 @@
         <item>ZW</item>
     </string-array>
     <string-array name="countries">
+        <item>	Russian Federation	</item>
+        <item>	Ukraine💩	</item>
+        <item>	Belarus	</item>
         <item>	Afghanistan	</item>
         <item>	Åland Islands	</item>
         <item>	Albania	</item>
@@ -272,7 +275,6 @@
         <item>	Bahrain	</item>
         <item>	Bangladesh	</item>
         <item>	Barbados	</item>
-        <item>	Belarus	</item>
         <item>	Belgium	</item>
         <item>	Belize	</item>
         <item>	Benin	</item>
@@ -435,7 +437,6 @@
         <item>	Qatar	</item>
         <item>	Réunion	</item>
         <item>	Romania	</item>
-        <item>	Russian Federation	</item>
         <item>	Rwanda	</item>
         <item>	Saint Barthélemy	</item>
         <item>	Saint Helena, Ascension and Tristan da Cunha	</item>
@@ -484,7 +485,6 @@
         <item>	Turks and Caicos Islands	</item>
         <item>	Tuvalu	</item>
         <item>	Uganda	</item>
-        <item>	Ukraine	</item>
         <item>	United Arab Emirates	</item>
         <item>	United Kingdom of Great Britain and Northern Ireland	</item>
         <item>	United States Minor Outlying Islands	</item>

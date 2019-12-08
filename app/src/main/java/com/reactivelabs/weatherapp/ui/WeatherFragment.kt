@@ -38,7 +38,7 @@ class WeatherFragment : Fragment() {
 
         cityTitle.text = arguments?.getString(CITY)
         title.text = arguments?.getString(OVERALL)
-        description.text = arguments?.getString(DESCRIPTION)
+       // description.text = arguments?.getString(DESCRIPTION)
         temperature.text = "${arguments?.getString(TEMP)} °C"
         humidity.text = "${arguments?.getString(HUMIDITY)} %"
     }

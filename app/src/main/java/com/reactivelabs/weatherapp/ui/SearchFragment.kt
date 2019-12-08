@@ -276,7 +276,7 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
             Pair("	Turks and Caicos Islands	", "	TC	"),
             Pair("	Tuvalu	", "	TV	"),
             Pair("	Uganda	", "	UG	"),
-            Pair("	Ukraine	", "	UA	"),
+            Pair("	Ukraine\uD83D\uDCA9	", "	UA	"),
             Pair("	United Arab Emirates	", "	AE	"),
             Pair("	United Kingdom of Great Britain and Northern Ireland	", "	GB	"),
             Pair("	United States Minor Outlying Islands	", "	UM	"),
