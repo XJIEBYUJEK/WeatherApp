@@ -27,11 +27,13 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
-//    companion object{
-//        const val CITY = "city"
-//        const val WEATHER_OVERALL = "title"
-//        const val WEATHER_DESCRIPTION = "description"
-//    }
+    companion object{
+        const val CITY = "city"
+        const val OVERALL = "title"
+        const val DESCRIPTION = "description"
+        const val HUMIDITY = "humidity"
+        const val TEMP = "temp"
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -47,31 +49,23 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
                 if (cityName.text.isNotBlank() && countryCode.text.isNotBlank()){
                     val cityName = cityName.text.toString()
                     val countryCode = countryCode.text.toString()
-                    val weather = repository.getCurrentWeatherForCity(cityName, countryCode).await()
-                    Log.i("gfd", weather.toString() ?: "None")
-                    val fragment = WeatherFragment()
-                    val bundle = Bundle()
-                    bundle.putString("city", weather?.name )
-                    bundle.putString("title", weather!!.weather[0].main)
-                    bundle.putString("description", weather!!.weather[0].descriptor)
-                    bundle.putString("temp", weather!!.main.temp.toString())
-                    bundle.putString("humidity", weather!!.main.humidity.toString())
-                    fragment.arguments = bundle
-                    fragmentManager?.beginTransaction()
-                        ?.replace(R.id.container,fragment)      //переход на новый экран
-                        ?.commit()
+                    val weatherRep = repository.getCurrentWeatherForCity(cityName, countryCode).await()
+                   // Log.i("gfd", weather.toString() ?: "None")
+                    weatherRep?.apply{
+                        val fragment = WeatherFragment()
+                        val bundle = Bundle()
+                        bundle.putString(CITY, name )
+                        bundle.putString(OVERALL, weather.first().main)
+                        bundle.putString(DESCRIPTION, weather.first().descriptor)
+                        bundle.putString(TEMP, main.temp.toString())
+                        bundle.putString(HUMIDITY, main.humidity.toString())
+                        fragment.arguments = bundle
+                        fragmentManager?.beginTransaction()
+                            ?.replace(R.id.container,fragment)      //переход на новый экран
+                            ?.commit()
+                    }
                 }
-
-
             }
-
-
-
-
-
-
-
-
         }
     }
 }
