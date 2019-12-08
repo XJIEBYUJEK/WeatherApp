@@ -299,11 +299,17 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
 
             launch {
                 if (cityName.text.isNotBlank()){
+                    startSearch.visibility = View.INVISIBLE
+                    loader.visibility = View.VISIBLE
                     val cityName = cityName.text.toString()
                     val countryCode = regions[countryCodeSp.selectedItem.toString()] ?: "Error"
                     val weatherRep = repository.getCurrentWeatherForCity(cityName, countryCode).await()
                    // Log.i("gfd", weather.toString() ?: "None")
                     weatherRep?.apply{
+
+
+
+
                         val fragment = WeatherFragment()
                         val bundle = Bundle()
                         bundle.putString(CITY, name )
@@ -315,7 +321,13 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
                         fragmentManager?.beginTransaction()
                             ?.replace(R.id.container,fragment)      //переход на новый экран
                             ?.commit()
+
+
                     }
+                    startSearch.visibility = View.VISIBLE    //loader
+                    loader.visibility = View.INVISIBLE
+
+
                 }
             }
         }
