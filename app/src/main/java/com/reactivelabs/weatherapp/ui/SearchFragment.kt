@@ -27,6 +27,11 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
+//    companion object{
+//        const val CITY = "city"
+//        const val WEATHER_OVERALL = "title"
+//        const val WEATHER_DESCRIPTION = "description"
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -47,7 +52,14 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
                     val fragment = WeatherFragment()
                     val bundle = Bundle()
                     bundle.putString("city", weather?.name )
-                    bundle.putString("title", title )
+                    bundle.putString("title", weather!!.weather[0].main)
+                    bundle.putString("description", weather!!.weather[0].descriptor)
+                    bundle.putString("temp", weather!!.main.temp.toString())
+                    bundle.putString("humidity", weather!!.main.humidity.toString())
+                    fragment.arguments = bundle
+                    fragmentManager?.beginTransaction()
+                        ?.replace(R.id.container,fragment)      //переход на новый экран
+                        ?.commit()
                 }
 
 
@@ -55,10 +67,7 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
 
 
 
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.container, WeatherFragment())
-                ?.addToBackStack(null)
-                ?.commit()
+
 
 
 

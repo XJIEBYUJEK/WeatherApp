@@ -21,10 +21,10 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        cityTitle.text = "Moscow"
-        title.text = "Clear"
-        description.text = "clear sky"
-        temperature.text = "42°"
-        humidity.text = "42%"
+        cityTitle.text = arguments?.getString("city")
+        title.text = arguments?.getString("title")
+        description.text = arguments?.getString("description")
+        temperature.text = arguments?.getString("temp")
+        humidity.text = arguments?.getString("humidity")
     }
 }
