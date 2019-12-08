@@ -37,6 +37,7 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
         val repository =  WeatherRepository()
 
 
@@ -46,9 +47,9 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
         startSearch.setOnClickListener {
 
             launch {
-                if (cityName.text.isNotBlank() && countryCode.text.isNotBlank()){
+                if (cityName.text.isNotBlank()){
                     val cityName = cityName.text.toString()
-                    val countryCode = countryCode.text.toString()
+                    val countryCode = countryCodeSp.selectedItem.toString()
                     val weatherRep = repository.getCurrentWeatherForCity(cityName, countryCode).await()
                    // Log.i("gfd", weather.toString() ?: "None")
                     weatherRep?.apply{
